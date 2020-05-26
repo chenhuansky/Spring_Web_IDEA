@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HelloController {
-    @GetMapping("/Hello")
-    public  String Hello(@RequestParam(name="name",required = false,defaultValue = "World")String name, Model model)
+    @GetMapping("/")//这里斜杠表示什么都不输就直接返回 否则需要在url中手动添加匹配内容
+    //这句是HI作为get方法的起手式  例如：http://localhost:1314/HI?name=wanxuan 起手的后面是name
+    public  String Hello()
     {
-        model.addAttribute("name",name);
-        return "Hello";
+        //往前台传数据
+        //return 表示重定向到这个方法并返回
+        return "index";
     }
 }
